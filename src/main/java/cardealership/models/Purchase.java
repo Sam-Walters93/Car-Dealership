@@ -1,19 +1,34 @@
 package cardealership.models;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Date;
 
+@Entity
 public class Purchase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private String name;
     private String email;
     private String phone;
     private String street1;
     private String street2;
     private String city;
-    private String state;
+    @ManyToOne
+    @JoinColumn(name = "stateid", nullable = false)
+    private State stateId;
     private String zipcode;
     private BigDecimal purchasePrice;
     private String purchaseType;
+    private Date purchaseDate;
+    @ManyToOne
+    @JoinColumn(name = "vehicleid", nullable = false)
+    private Vehicle vehicle;
+    @ManyToOne
+    @JoinColumn(name = "userid", nullable = false)
+    private User user;
 
     public Purchase() {
     }
@@ -74,12 +89,12 @@ public class Purchase {
         this.city = city;
     }
 
-    public String getState() {
-        return state;
+    public State getState() {
+        return stateId;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setState(State stateId) {
+        this.stateId = stateId;
     }
 
     public String getZipcode() {
@@ -104,5 +119,29 @@ public class Purchase {
 
     public void setPurchaseType(String purchaseType) {
         this.purchaseType = purchaseType;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
