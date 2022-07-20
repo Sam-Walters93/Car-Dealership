@@ -144,4 +144,45 @@ public class Purchase {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Purchase purchase)) return false;
+
+        if (getId() != purchase.getId()) return false;
+        if (!getName().equals(purchase.getName())) return false;
+        if (!getEmail().equals(purchase.getEmail())) return false;
+        if (!getPhone().equals(purchase.getPhone())) return false;
+        if (!getStreet1().equals(purchase.getStreet1())) return false;
+        if (getStreet2() != null ? !getStreet2().equals(purchase.getStreet2()) : purchase.getStreet2() != null)
+            return false;
+        if (!getCity().equals(purchase.getCity())) return false;
+        if (!stateId.equals(purchase.stateId)) return false;
+        if (!getZipcode().equals(purchase.getZipcode())) return false;
+        if (!getPurchasePrice().equals(purchase.getPurchasePrice())) return false;
+        if (!getPurchaseType().equals(purchase.getPurchaseType())) return false;
+        if (!getPurchaseDate().equals(purchase.getPurchaseDate())) return false;
+        if (!getVehicle().equals(purchase.getVehicle())) return false;
+        return getUser().equals(purchase.getUser());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getEmail().hashCode();
+        result = 31 * result + getPhone().hashCode();
+        result = 31 * result + getStreet1().hashCode();
+        result = 31 * result + (getStreet2() != null ? getStreet2().hashCode() : 0);
+        result = 31 * result + getCity().hashCode();
+        result = 31 * result + stateId.hashCode();
+        result = 31 * result + getZipcode().hashCode();
+        result = 31 * result + getPurchasePrice().hashCode();
+        result = 31 * result + getPurchaseType().hashCode();
+        result = 31 * result + getPurchaseDate().hashCode();
+        result = 31 * result + getVehicle().hashCode();
+        result = 31 * result + getUser().hashCode();
+        return result;
+    }
 }

@@ -175,11 +175,57 @@ public class Vehicle {
         this.feature = feature;
     }
 
-//    public boolean isSold() {
-//        return sold;
-//    }
+    public boolean isSold() {
+        return sold;
+    }
 
     public void setSold(boolean sold) {
         this.sold = sold;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vehicle vehicle)) return false;
+
+        if (getId() != vehicle.getId()) return false;
+        if (getYear() != vehicle.getYear()) return false;
+        if (getMileage() != vehicle.getMileage()) return false;
+        if (isFeature() != vehicle.isFeature()) return false;
+        if (isSold() != vehicle.isSold()) return false;
+        if (!getMake().equals(vehicle.getMake())) return false;
+        if (!getModel().equals(vehicle.getModel())) return false;
+        if (!getType().equals(vehicle.getType())) return false;
+        if (!getBodyStyle().equals(vehicle.getBodyStyle())) return false;
+        if (!getTransmission().equals(vehicle.getTransmission())) return false;
+        if (!getColor().equals(vehicle.getColor())) return false;
+        if (!getInterior().equals(vehicle.getInterior())) return false;
+        if (!getVin().equals(vehicle.getVin())) return false;
+        if (!getMsrp().equals(vehicle.getMsrp())) return false;
+        if (!getSalePrice().equals(vehicle.getSalePrice())) return false;
+        if (!getDescription().equals(vehicle.getDescription())) return false;
+        return getPhoto().equals(vehicle.getPhoto());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getMake().hashCode();
+        result = 31 * result + getModel().hashCode();
+        result = 31 * result + getType().hashCode();
+        result = 31 * result + getBodyStyle().hashCode();
+        result = 31 * result + getYear();
+        result = 31 * result + getTransmission().hashCode();
+        result = 31 * result + getColor().hashCode();
+        result = 31 * result + getInterior().hashCode();
+        result = 31 * result + getMileage();
+        result = 31 * result + getVin().hashCode();
+        result = 31 * result + getMsrp().hashCode();
+        result = 31 * result + getSalePrice().hashCode();
+        result = 31 * result + getDescription().hashCode();
+        result = 31 * result + getPhoto().hashCode();
+        result = 31 * result + (isFeature() ? 1 : 0);
+        result = 31 * result + (isSold() ? 1 : 0);
+        return result;
     }
 }

@@ -6,17 +6,17 @@ import cardealership.models.Vehicle;
 import cardealership.repositories.PurchaseRepository;
 import cardealership.repositories.StateRepository;
 import cardealership.repositories.VehicleRepository;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/sales")
 public class SalesController {
 
@@ -24,12 +24,12 @@ public class SalesController {
     PurchaseRepository purchaseRepo;
     StateRepository stateRepo;
 
-//    @GetMapping("/index")
-//    public String showOnSaleVehicles(Model model) {
-//        List<Vehicle> vehicles = vehicleRepo.findAll().stream().filter(x -> !x.isSold()).toList();
-//        model.addAttribute("vehicles", vehicles);
-//        return "sales/index";
-//    }
+    @GetMapping("/index")
+    public String showOnSaleVehicles(Model model) {
+        List<Vehicle> vehicles = vehicleRepo.findAll().stream().filter(x -> !x.isSold()).toList();
+        model.addAttribute("vehicles", vehicles);
+        return "sales/index";
+    }
 
     @GetMapping("/purchase")
     public String showPurchasedVehicles(Integer id, Model model) {

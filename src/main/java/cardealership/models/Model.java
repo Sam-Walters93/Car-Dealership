@@ -61,4 +61,26 @@ public class Model {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Model model)) return false;
+
+        if (getId() != model.getId()) return false;
+        if (!getMake().equals(model.getMake())) return false;
+        if (!getName().equals(model.getName())) return false;
+        if (!getDateAdded().equals(model.getDateAdded())) return false;
+        return getUser().equals(model.getUser());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getMake().hashCode();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getDateAdded().hashCode();
+        result = 31 * result + getUser().hashCode();
+        return result;
+    }
 }

@@ -69,4 +69,28 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User user)) return false;
+
+        if (getId() != user.getId()) return false;
+        if (!getFirstName().equals(user.getFirstName())) return false;
+        if (!getLastName().equals(user.getLastName())) return false;
+        if (!getEmail().equals(user.getEmail())) return false;
+        if (!getRole().equals(user.getRole())) return false;
+        return getPassword().equals(user.getPassword());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getFirstName().hashCode();
+        result = 31 * result + getLastName().hashCode();
+        result = 31 * result + getEmail().hashCode();
+        result = 31 * result + getRole().hashCode();
+        result = 31 * result + getPassword().hashCode();
+        return result;
+    }
 }

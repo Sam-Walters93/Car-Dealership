@@ -50,4 +50,24 @@ public class Make {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Make make)) return false;
+
+        if (getId() != make.getId()) return false;
+        if (!getName().equals(make.getName())) return false;
+        if (!getDateAdded().equals(make.getDateAdded())) return false;
+        return getUser().equals(make.getUser());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getDateAdded().hashCode();
+        result = 31 * result + getUser().hashCode();
+        return result;
+    }
 }
