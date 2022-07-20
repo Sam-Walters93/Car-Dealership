@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 
 public class Vehicle {
     private int id;
-    private String make;
-    private String model;
+    private Make make;
+    private Model model;
     private String type;
     private String bodyStyle;
-    private String year;
+    private int year;
     private String transmission;
     private String color;
     private String interior;
@@ -17,7 +17,10 @@ public class Vehicle {
     private BigDecimal msrp;
     private BigDecimal salePrice;
     private String description;
-    private String picture;
+    private String photo;
+    private boolean feature;
+    private boolean sold;
+
 
     public Vehicle() {
     }
@@ -30,19 +33,19 @@ public class Vehicle {
         this.id = id;
     }
 
-    public String getMake() {
+    public Make getMake() {
         return make;
     }
 
-    public void setMake(String make) {
+    public void setMake(Make make) {
         this.make = make;
     }
 
-    public String getModel() {
+    public Model getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(Model model) {
         this.model = model;
     }
 
@@ -62,11 +65,11 @@ public class Vehicle {
         this.bodyStyle = bodyStyle;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -134,11 +137,27 @@ public class Vehicle {
         this.description = description;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public boolean isFeature() {
+        return feature;
+    }
+
+    public void setFeature(boolean feature) {
+        this.feature = feature;
+    }
+
+    public boolean isSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
     }
 }
