@@ -1,24 +1,46 @@
 package cardealership.models;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
 public class Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne
+    @JoinColumn(name = "makeid", nullable = false)
     private Make make;
+    @ManyToOne
+    @JoinColumn(name = "modelid", nullable = false)
     private Model model;
+    @Column
     private String type;
+    @Column
     private String bodyStyle;
+    @Column
     private int year;
+    @Column
     private String transmission;
+    @Column
     private String color;
+    @Column
     private String interior;
+    @Column
     private int mileage;
+    @Column
     private String vin;
+    @Column
     private BigDecimal msrp;
+    @Column
     private BigDecimal salePrice;
+    @Column
     private String description;
+    @Column
     private String photo;
+    @Column
     private boolean feature;
+    @Column
     private boolean sold;
 
 
@@ -153,9 +175,9 @@ public class Vehicle {
         this.feature = feature;
     }
 
-    public boolean isSold() {
-        return sold;
-    }
+//    public boolean isSold() {
+//        return sold;
+//    }
 
     public void setSold(boolean sold) {
         this.sold = sold;
