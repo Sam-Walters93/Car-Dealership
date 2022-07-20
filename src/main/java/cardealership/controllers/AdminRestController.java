@@ -2,6 +2,7 @@ package cardealership.controllers;
 
 import cardealership.models.*;
 import cardealership.repositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,15 @@ public class AdminRestController {
     MakeRepository makeRepo;
     ModelRepository modelRepo;
     SpecialRepository specialRepo;
+
+    @Autowired
+    public AdminRestController(VehicleRepository vehicleRepo, UserRepository userRepo, MakeRepository makeRepo, ModelRepository modelRepo, SpecialRepository specialRepo) {
+        this.vehicleRepo = vehicleRepo;
+        this.userRepo = userRepo;
+        this.makeRepo = makeRepo;
+        this.modelRepo = modelRepo;
+        this.specialRepo = specialRepo;
+    }
 
     @GetMapping("/vehicles")
     public List<Vehicle> getAllVehicles() {

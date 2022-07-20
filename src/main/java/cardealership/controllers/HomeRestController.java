@@ -5,7 +5,6 @@ import cardealership.models.Vehicle;
 import cardealership.repositories.SpecialRepository;
 import cardealership.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,31 +12,27 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
-public class HomeController {
+@RequestMapping("/home")
+public class HomeRestController {
 
     VehicleRepository vehicleRepo;
     SpecialRepository specialRepo;
 
     @Autowired
-    public HomeController(VehicleRepository vehicleRepo, SpecialRepository specialRepo) {
+    public HomeRestController(VehicleRepository vehicleRepo, SpecialRepository specialRepo) {
         this.vehicleRepo = vehicleRepo;
         this.specialRepo = specialRepo;
     }
 
-    @GetMapping
-    public String showFeaturedVehicles(Model model) {
+    @GetMapping("/index")
+    public List<Vehicle> showFeaturedVehicles() {
         // get only featured vehicles
-        List<Vehicle> vehicles = vehicleRepo.findAll().stream().filter(x -> !x.isSold()).filter(Vehicle::isFeature).toList();
-        model.addAttribute("vehicles", vehicles);
-        return "home/index";
+        return vehicleRepo.findAll().stream().filter(x -> !x.isSold()).filter(Vehicle::isFeature).toList();
     }
 
     @GetMapping("/specials")
-    public String showSpecials(Model model) {
-        List<Special> specials = specialRepo.findAll();
-        model.addAttribute("specials", specials);
-        return "home/special";
+    public List<Special> showSpecials() {
+        return specialRepo.findAll();
     }
 
     @GetMapping("/contact")
