@@ -1,4 +1,4 @@
-package cardealership.controllers;
+package cardealership.restControllers;
 
 import cardealership.models.Special;
 import cardealership.models.Vehicle;
