@@ -10,7 +10,7 @@ public class Make {
     private int id;
     @Column
     private String name;
-    @Column
+    @Column(name = "dateadded")
     private Date dateAdded;
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)

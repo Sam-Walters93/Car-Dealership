@@ -8,13 +8,17 @@ public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
+    private String name;
+
+    @Column(name = "dateadded")
+    private Date dateAdded;
+
     @ManyToOne
     @JoinColumn(name = "makeid", nullable = false)
     private Make make;
-    @Column
-    private String name;
-    @Column
-    private Date dateAdded;
+
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     private User user;
