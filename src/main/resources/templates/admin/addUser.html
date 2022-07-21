@@ -1,10 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BuzzZaw Auto</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BuzzZaw Auto</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">New Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Used Inventory</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Specials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!--Add User-->
+<div class="container" style="width: 500px">
+    <h3 class="my-5 text-left">Add User</h3>
+    <form>
+        <div class="row my-3">
+            <div class="col-6">
+                First Name
+                <input class="form-control" type="text" name="firstName" />
+            </div>
+            <div class="col-6">
+                Last Name
+                <input class="form-control" type="text" name="lastName">
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-6">
+                Email<br>
+                <input class="form-select" type="email" name="email" />
+            </div>
+            <div class="col-6">
+                Role<br>
+                <select class="form-select" name="role">
+                    <option selected>Choose Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-6">
+                Password
+                <input class="form-control" type="text" name="password" />
+            </div>
+            <div class="col-6">
+                Confirm Password
+                <input class="form-control" type="text" name="confirmPassword">
+            </div>
+        </div>
+
+        <input class="my-3 btn btn-primary btn-sm" type="submit" value="Save" />
+    </form>
+</div>
+
+
+<!--&lt;!&ndash;Footer&ndash;&gt;-->
+<!--<div class="container-fluid p-5 mt-5 bg-light text-center">-->
+<!--    <span>Footer</span>-->
+<!--</div>-->
 
 </body>
 </html>
